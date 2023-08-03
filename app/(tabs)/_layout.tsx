@@ -1,8 +1,9 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
-import { Pressable, useColorScheme } from 'react-native';
-
+import { Pressable, useColorScheme, StyleSheet } from 'react-native';
+import { Entypo } from '@expo/vector-icons';
 import Colors from '@/constants/Colors';
+import { Feather } from '@expo/vector-icons';
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -22,32 +23,44 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
       }}>
-      <Tabs.Screen
+      <Tabs.Screen 
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          title: ' ',
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+          headerShown: false,
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="destination"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: ' ',
+          tabBarIcon: ({ color }) => <Entypo name="location-pin" size={25} color={color} />,
+          headerShown: false,
+        }}
+      />
+      <Tabs.Screen
+        name="map"
+        options={{
+          title: ' ',
+          tabBarIcon: ({ color }) => <Entypo name="map" size={25} color={color} />,
+
+        }}
+      />
+      <Tabs.Screen
+        name="liked"
+        options={{
+          title: ' ',
+          tabBarIcon: ({ color }) => <Entypo name="heart" size={25} color={color}/>,
+
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: ' ',
+          tabBarIcon: ({ color }) => <Feather name="user" size={25} color={color} />,
+
         }}
       />
     </Tabs>
