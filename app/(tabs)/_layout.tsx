@@ -1,68 +1,127 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable, useColorScheme, StyleSheet } from 'react-native';
+import { Pressable, useColorScheme, StyleSheet, View } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import Colors from '@/constants/Colors';
 import { Feather } from '@expo/vector-icons';
+import { BerlinTabBarNavigator, DotSize, JanmTabBarNavigator } from 'rn-slick-bottom-tabs';
+import TabOneScreen from '.';
+import TabTwoScreen from './destination';
+import TabThreeScreen from './map';
+import TabFourScreen from './liked';
+import TabFiveScreen from './profile';
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
+// function TabBarIcon(props: {
+//   name: React.ComponentProps<typeof FontAwesome>['name'];
+//   color: string;
+// }) {
+//   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+// }
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+const Tabs: any = BerlinTabBarNavigator()
 
+
+const TabBarIcon = (props: any) => {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-      }}>
-      <Tabs.Screen 
-        name="index"
-        options={{
-          title: ' ',
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
-          headerShown: false,
-        }}
-      />
-      <Tabs.Screen
-        name="destination"
-        options={{
-          title: ' ',
-          tabBarIcon: ({ color }) => <Entypo name="location-pin" size={25} color={color} />,
-          headerShown: false,
-        }}
-      />
-      <Tabs.Screen
-        name="map"
-        options={{
-          title: ' ',
-          tabBarIcon: ({ color }) => <Entypo name="map" size={25} color={color} />,
-
-        }}
-      />
-      <Tabs.Screen
-        name="liked"
-        options={{
-          title: ' ',
-          tabBarIcon: ({ color }) => <Entypo name="heart" size={25} color={color}/>,
-
-        }}
-      />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          title: ' ',
-          tabBarIcon: ({ color }) => <Feather name="user" size={25} color={color} />,
-
-        }}
-      />
-    </Tabs>
-  );
+    <Entypo
+      name={props.name}
+      size={props.size ? props.size : 24}
+      color={props.tintColor}
+    />
+  )
 }
+export default () => (
+  <Tabs.Navigator backBehavior='history'
+    screenOptions={{
+      animation: 'slide_from_right'
+
+    }}
+
+    initialRouteName="TabOne"
+    tabBarOptions={{
+      activeTintColor: "#7A28CB",
+      inactiveTintColor: "#9e9e9e",
+      activeBackgroundColor: "#e5cfff",
+    }}
+    appearance={{
+      dotSize: DotSize.MEDIUM,
+
+    }}
+  >
+    <Tabs.Screen
+      name="index"
+      component={TabOneScreen}
+      options={{
+        title: " ",
+        tabBarIcon: ({ focused, color }: any) => (
+          <TabBarIcon
+            focused={focused}
+            tintColor={color}
+            name="home"
+          />
+        ),
+
+      }}
+    />
+
+    <Tabs.Screen
+      name="destination"
+      component={TabTwoScreen}
+      options={{
+        title: " ",
+        tabBarIcon: ({ focused, color }: any) => (
+          <TabBarIcon
+            focused={focused}
+            tintColor={color}
+            name="location-pin"
+          />
+        ),
+      }}
+    />
+    <Tabs.Screen
+      name="map"
+      component={TabThreeScreen}
+      options={{
+        title: " ",
+        tabBarIcon: ({ focused, color }: any) => (
+          <TabBarIcon
+            focused={focused}
+            tintColor={color}
+            name="map"
+          />
+        ),
+      }}
+    />
+
+    <Tabs.Screen
+      name=" "
+      component={TabFourScreen}
+      options={{
+        tabBarIcon: ({ focused, color }: any) => (
+          <TabBarIcon
+            focused={focused}
+            tintColor={color}
+            name="heart"
+          />
+        ),
+      }}
+    />
+    <Tabs.Screen
+      name="profile"
+      component={TabFiveScreen}
+      options={{
+        title: " ",
+        tabBarIcon: ({ focused, color }: any) => (
+          <TabBarIcon
+            focused={focused}
+            tintColor={color}
+            name="user"
+          />
+        ),
+      }}
+    />
+  </Tabs.Navigator>
+);
+

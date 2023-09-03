@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { Text, View } from '@/components/Themed';
 
-export default function TabTwoScreen() {
+export default function TabFiveScreen() {
   return (
     <View style={styles.container}>
     </View>

@@ -38,9 +38,9 @@ const Destination = () => {
                         </Text>
                         <Text style={styles.icon}><FontAwesome name="star" size={15} color="#FB9C0A" /> 5.6</Text>
                         <View style={styles.circle}>
-                            <View style={styles.circle}>
-                                <View style={styles.circle}>
-                                    <View style={styles.circle}>
+                            <View style={styles.circle1}>
+                                <View style={styles.circle2}>
+                                    <View style={styles.circle3}>
                                         <Text style={styles.circleText}>12+</Text>
                                     </View>
                                 </View>

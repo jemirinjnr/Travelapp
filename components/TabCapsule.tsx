@@ -6,11 +6,12 @@ import { Image } from 'expo-image';
 type CapsuleType = {
     title: string;
     backgroundColor?: string;
+    color?: string;
 }
 
 export const TabCapsule = ({ title, backgroundColor = "white" }: CapsuleType) => {
     return (
-        <View style={[styles.card, styles.cardElevated, { backgroundColor: backgroundColor }]}>
+        <View style={[styles.card, styles.cardElevated, { backgroundColor: backgroundColor}]}>
             <Text>{title} </Text>
         </View>
     );

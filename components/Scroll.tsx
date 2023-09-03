@@ -5,9 +5,9 @@ const ScrollTabs = ({}) => {
     return (
         <View>
             <ScrollView horizontal={true}  style={styles.container} showsHorizontalScrollIndicator={false}>
-                <TabCapsule title="Place" backgroundColor="#4269A1"/>
+                <TabCapsule title="Place" backgroundColor="#4269A1" />
                 <TabCapsule title="Cullnary" />
-                <TabCapsule title="Samuel" />
+                <TabCapsule title="Culture" />
                 <TabCapsule title="Monument" />
             </ScrollView>
         </View>
