@@ -8,7 +8,6 @@ import ScrollTabs from '@/components/Scroll';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Places from '@/components/Places';
 import Destination from '@/components/Destination';
-import Colors from '@/constants/Colors';
 
 export default function TabOneScreen() {
   return (
@@ -23,7 +22,7 @@ export default function TabOneScreen() {
               </View>
               <View style={styles.scroll}>
                 <TextInput placeholder='Search a Place Here...' clearButtonMode='always' />
-                <Entypo name="magnifying-glass" size={24} color="lightgrey" style={{}} />
+                <Entypo name="magnifying-glass" size={24} color="grey" />
               </View>
             </View>
 
@@ -72,6 +71,7 @@ const styles = StyleSheet.create({
   header: {
     marginLeft: 15,
     fontSize: 25,
+    color: 'black'
   },
   header1: {
     color: '#4269A1',
@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 20,
     marginTop: 20,
+    backgroundColor: "white" 
   },
   container: {
     justifyContent: 'space-between',
@@ -102,6 +103,7 @@ const styles = StyleSheet.create({
   travelplaces: {
     fontSize: 20,
     marginLeft: 15,
+    color: 'gray'
   },
   show: {
     fontSize: 20,
