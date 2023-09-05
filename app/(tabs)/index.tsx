@@ -21,7 +21,7 @@ export default function TabOneScreen() {
                 <Feather name="user" size={30} color="black" />
               </View>
               <View style={styles.scroll}>
-                <TextInput placeholder='Search a Place Here...' clearButtonMode='always' />
+                <TextInput placeholder='Search a Place Here...' clearButtonMode='always' placeholderTextColor={"gray"} />
                 <Entypo name="magnifying-glass" size={24} color="grey" />
               </View>
             </View>
